@@ -55,7 +55,7 @@ const updateTodo = () => {
                 </ListItemAvatar>
                 <ListItemText primary={props.todo.todo} secondary="Dummy deadline ⏰" />
                 </ListItem>
-                <Button variant="contained" style={{backgroundColor: "blue", color:"white"}} onClick={e => setOpen(true)}>Edit</Button>
+                <Button variant="contained" style={{backgroundColor: "blue", color:"white"}} onClick={e => {setOpen(true); setInput(props.todo.todo);}}>Edit</Button>
                 <DeleteForeverIcon onClick={event => db.collection('todos').doc(props.todo.id).delete()} />
             
         </List>
