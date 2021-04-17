@@ -3,13 +3,14 @@ import React, {
 } from 'react';
 import Todo from './Todo';
 import { Button, FormControl, Input, InputLabel } from '@material-ui/core';
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import './App.css';
-import db from './firebase';
+// import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import '../App.css';
+import db from '../firebase';
 import firebase from 'firebase';
+import { Link } from "react-router-dom"; 
 
 
-function App() {
+export default function App() {
   const [todos, setTodos] = useState([]);
 
   const [input, setInput] = useState('');
@@ -42,7 +43,10 @@ useEffect(() => {
 
   return ( <
     div className = "App" >
-    <h1 > Hello World🚀 </h1>
+    <h1 > Welcome to Todo 🚀 </h1>
+    <div style={{margin: "2rem", textAlign: 'left'}}>
+      <Link to="/" className="btn btn-secondary w-10 mt-3">go to profile</Link>
+    </div>
     <form>
     <FormControl>
   <InputLabel>✅ Write your Todo</InputLabel>
@@ -74,5 +78,3 @@ useEffect(() => {
     </div>
   );
 }
-
-export default App;

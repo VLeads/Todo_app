@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './Todo.css';
+import '../Todo.css';
 import { Button, List,ListItem,ListItemAvatar,ListItemText, Modal } from '@material-ui/core'
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import db from './firebase';
+import db from '../firebase';
 import { makeStyles } from '@material-ui/core/styles';
 //"./firebase" 👈 is local firebase (folder that we created firebase.js )
 // "firebase" 👈 is dependancy firebase
@@ -30,7 +30,7 @@ const handleOpen = () => {
 const updateTodo = () => {
     //update todo with new input text
     db.collection('todos').doc(props.todo.id).set({
-        todo: input
+        todo: input,
     }, { merge: true});
     setOpen(false);
 }
@@ -43,7 +43,7 @@ const updateTodo = () => {
         >
             <div className={classes.paper}>
                 <h1>Now do changes...</h1>
-                <input  value={input} onChange={event => setInput(event.target.value)} />
+                <input  value={input} onChange={event => setInput(event.target.value) } />
                <Button onClick={updateTodo}>update Todo</Button>
             </div>
         </Modal>
